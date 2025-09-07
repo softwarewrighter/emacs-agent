@@ -1,28 +1,42 @@
-# Emacs
+# Test outputs
+test_output/
+
+# Emacs backup files
 *~
 \#*\#
-.\#*
+.#*
+
+# Compiled elisp
 *.elc
+
+# Emacs auto-save and tramp
 auto-save-list
 tramp
-.\#*
 
-# OS
+# Environment files
+.env
+api-key.txt
+
+# macOS
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
+
+# Windows
 ehthumbs.db
 Thumbs.db
 
 # Secrets
 *.secret
-.env
-api-key.txt
 
 # Build artifacts
 *.tar
 *.tar.gz
 dist/
 build/
+
+# Temporary files
+*.tmp
+*.log
