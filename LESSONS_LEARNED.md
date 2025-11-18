@@ -125,11 +125,23 @@ User Input → System Prompt + Tools + User Request → LLM
 
 ## Future Improvements
 
+### Immediate Priorities
+1. **Selective Tool Exposure**: Only send relevant tools based on user action
+2. **Context-Aware System Prompts**: Multiple tailored prompts for different operations
+3. **Buffer Context Enhancement**: Include actual buffer content, not just descriptions
+4. **Context Pruning**: Manage token limits intelligently
+
+### Near Term
 1. **Multi-turn Conversations**: Include relevant context from previous turns
 2. **Tool Chaining**: Allow LLM to call multiple tools in sequence
 3. **Error Recovery**: Let LLM retry with different tools on failure
-4. **Model Agnostic**: Support multiple LLM providers (Claude, GPT, etc.)
-5. **MCP 2.0**: Adapt to upcoming protocol updates
+4. **Project Context**: Include related buffers and directory structure
+
+### Long Term
+1. **Model Agnostic**: Support multiple LLM providers (Claude, GPT, etc.)
+2. **MCP 2.0**: Adapt to upcoming protocol updates
+3. **RAG Integration**: Include Emacs documentation and best practices
+4. **Caching Strategy**: Leverage potential LLM caching for repeated context
 
 ## Testing Results
 

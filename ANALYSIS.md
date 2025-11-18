@@ -183,6 +183,33 @@ Without TDD, we might have kept adding workarounds instead of fixing the fundame
 | User Suggestion | Sometimes | 40% |
 | Ambiguous | Sometimes | 50% |
 
+## Recent Discoveries
+
+### Context Augmentation
+Adding buffer and action context helps but isn't sufficient alone:
+- Buffer mode detection works (elisp vs python)
+- File extension hints are recognized
+- But tool usage still requires explicit action verbs
+
+### Tool Selection Challenges
+- Providing all tools on every call is overkill
+- LLM needs selective tool exposure based on context
+- Different operations need different system prompts
+
+### What Actually Triggers Tool Use
+1. **Explicit action verbs**: "create", "save", "write"
+2. **Specific filenames**: mentioning .el files
+3. **Clear task scope**: well-defined requirements
+4. **Buffer context**: TODO comments, partial implementations
+
 ## Conclusion
 
-The key insight that made everything work: **LLMs are stateless services, not conversational partners with memory**. Once we included the complete context (system prompt + tools + request) in every API call, Gemini correctly used tools 70% of the time when appropriate, and correctly avoided them when not needed.
+The key insight that made everything work: **LLMs are stateless services, not conversational partners with memory**. Once we included the complete context (system prompt + tools + request) in every API call, Gemini correctly used tools 70% of the time when appropriate.
+
+However, achieving consistent tool usage requires more than just including context - it needs:
+- Selective tool exposure
+- Context-aware system prompts
+- Clear action triggers
+- Intelligent context management
+
+The challenge is balancing completeness with conciseness while respecting token limits.

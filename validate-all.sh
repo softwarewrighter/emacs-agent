@@ -43,7 +43,7 @@ fi
 for test_file in test-*.el; do
   echo ""
   echo "Running $test_file..."
-  emacs --batch -l ai-agent.el -l "$test_file" -f ert-run-tests-batch-and-exit 2>&1 | tail -5
+  emacs --batch -l emacs-agent-mcp.el -l "$test_file" -f ert-run-tests-batch-and-exit 2>&1 | tail -5
 done
 
 echo ""

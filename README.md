@@ -134,13 +134,19 @@ See [ROADMAP.md](./ROADMAP.md) for implementation plan.
 
 ## 📚 Documentation
 
+### Planning & Architecture
 - [RUST_ARCHITECTURE.md](./RUST_ARCHITECTURE.md) - Detailed Rust backend architecture
 - [TOON_MCP_OPTIMIZATIONS.md](./TOON_MCP_OPTIMIZATIONS.md) - Token optimization strategies
 - [ELISP_STRUCTURE.md](./ELISP_STRUCTURE.md) - Emacs Lisp package structure and API
 - [ROADMAP.md](./ROADMAP.md) - Phase-by-phase implementation plan
 - [ARCHITECTURE.md](./ARCHITECTURE.md) - Original OpenCode-based design (for reference)
-- [Lessons Learned](LESSONS_LEARNED.md) - Key insights from Gemini prototype
 - [Architecture](docs/architecture.md) - System design
+
+### Implementation & Analysis
+- [Lessons Learned](LESSONS_LEARNED.md) - Key insights from development
+- [Analysis](ANALYSIS.md) - What worked and what didn't
+- [Challenges & Solutions](docs/challenges.md) - Core challenges and proposed solutions
+- [Demos Overview](DEMOS.md) - Guide to demo scripts
 
 ## ✨ Key Features (Planned)
 
