@@ -15,9 +15,9 @@ This page documents the persistent transcript system that saves all conversation
 graph LR
     SESSION[Agent Session] --> LOGGER[Transcript Logger]
 
-    LOGGER --> JSON[JSON Format<br/>Canonical]
-    LOGGER --> MD[Markdown Format<br/>Human-readable]
-    LOGGER --> ORG[Org-mode Format<br/>Emacs native]
+    LOGGER --> JSON[JSON Format Canonical]
+    LOGGER --> MD[Markdown Format Human-readable]
+    LOGGER --> ORG[Org-mode Format Emacs native]
 
     JSON --> DISK[(Disk Storage)]
     MD --> DISK

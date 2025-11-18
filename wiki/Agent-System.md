@@ -154,7 +154,7 @@ sequenceDiagram
     PlanAgent->>Tools: git_status
     Tools-->>PlanAgent: Clean tree
 
-    PlanAgent-->>Orchestrator: Implementation plan:<br/>1. Create auth.rs<br/>2. Add middleware<br/>3. Update main.rs<br/>4. Add tests
+    PlanAgent-->>Orchestrator: Implementation plan: 1. Create auth.rs 2. Add middleware 3. Update main.rs 4. Add tests
 
     Note over Orchestrator: Phase 2: Implementation
     Orchestrator->>BuildAgent: Execute plan
@@ -179,9 +179,9 @@ Multiple agents work on different aspects simultaneously:
 graph TB
     TASK[Complex Task] --> ORCHESTRATOR[Orchestrator]
 
-    ORCHESTRATOR --> AGENT1[Agent 1:<br/>Implement feature]
-    ORCHESTRATOR --> AGENT2[Agent 2:<br/>Write tests]
-    ORCHESTRATOR --> AGENT3[Agent 3:<br/>Update docs]
+    ORCHESTRATOR --> AGENT1[Agent 1: Implement feature]
+    ORCHESTRATOR --> AGENT2[Agent 2: Write tests]
+    ORCHESTRATOR --> AGENT3[Agent 3: Update docs]
 
     AGENT1 --> SYNC[Synchronization Point]
     AGENT2 --> SYNC
@@ -420,9 +420,9 @@ To fit within token limits, context is prioritized:
 graph LR
     FULL[Full Context] --> PRIORITIZE[Prioritize]
 
-    PRIORITIZE --> ESSENTIAL[Essential<br/>Always include]
-    PRIORITIZE --> IMPORTANT[Important<br/>Include if space]
-    PRIORITIZE --> OPTIONAL[Optional<br/>Summarize or drop]
+    PRIORITIZE --> ESSENTIAL[Essential Always include]
+    PRIORITIZE --> IMPORTANT[Important Include if space]
+    PRIORITIZE --> OPTIONAL[Optional Summarize or drop]
 
     ESSENTIAL --> MESSAGES[Recent messages]
     ESSENTIAL --> TOOLS[Current tool schemas]
@@ -487,7 +487,7 @@ graph TB
     TYPE -->|LLM error| BACKOFF[Exponential backoff]
     TYPE -->|Unrecoverable| INFORM[Inform user]
 
-    RETRY --> ATTEMPT{Attempts<br/>< 3?}
+    RETRY --> ATTEMPT{Attempts < 3?}
     ATTEMPT -->|Yes| EXECUTE[Re-execute]
     ATTEMPT -->|No| INFORM
 

@@ -15,7 +15,7 @@ This page documents the **Model Context Protocol (MCP)** integration with TOON o
 graph TB
     subgraph "Emacs-Agent"
         AGENT[Agent Orchestrator]
-        MCP_CLIENT[MCP Client<br/>with TOON]
+        MCP_CLIENT[MCP Client with TOON]
     end
 
     subgraph "MCP Servers"

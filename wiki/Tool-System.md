@@ -9,7 +9,7 @@ The **Tool System** enables the agent to perform actions in the environment thro
 ```mermaid
 graph TB
     LLM[LLM] -->|Request tool| ORCHESTRATOR[Agent Orchestrator]
-    ORCHESTRATOR --> APPROVAL{Requires<br/>Approval?}
+    ORCHESTRATOR --> APPROVAL{Requires Approval?}
 
     APPROVAL -->|No| EXECUTOR[Tool Executor]
     APPROVAL -->|Yes| USER_PROMPT[User Approval UI]
@@ -122,17 +122,17 @@ mindmap
 
 ```mermaid
 graph LR
-    TOOL[Tool Call Request] --> CHECK{Check<br/>Tool Type}
+    TOOL[Tool Call Request] --> CHECK{Check Tool Type}
 
     CHECK -->|Read-only| AUTO[Auto-approve]
     CHECK -->|Write| USER[Require approval]
-    CHECK -->|Dangerous| STRICT[Require approval<br/>+ Confirmation]
+    CHECK -->|Dangerous| STRICT[Require approval + Confirmation]
 
     AUTO --> EXEC[Execute]
     USER --> PROMPT[Show UI]
-    STRICT --> PROMPT2[Show UI<br/>+ Preview]
+    STRICT --> PROMPT2[Show UI + Preview]
 
-    PROMPT --> DECISION{User<br/>Decision}
+    PROMPT --> DECISION{User Decision}
     PROMPT2 --> DECISION
 
     DECISION -->|Approve| EXEC
@@ -262,7 +262,7 @@ graph TB
     CHECK -->|Yes| LOG_SUCCESS[Log success]
     CHECK -->|No| ERROR_TYPE{Error Type}
 
-    ERROR_TYPE -->|Recoverable| RETRY{Retry<br/>Count < 3?}
+    ERROR_TYPE -->|Recoverable| RETRY{Retry Count < 3?}
     ERROR_TYPE -->|Permission| INFORM_USER[Inform user]
     ERROR_TYPE -->|Invalid params| INFORM_LLM[Inform LLM]
     ERROR_TYPE -->|Timeout| RETRY
@@ -298,10 +298,10 @@ The Emacs frontend shows an approval dialog with:
 ```mermaid
 graph TB
     subgraph "Emacs Approval Buffer"
-        HEADER[Tool: edit_file<br/>File: src/main.rs]
-        PREVIEW[Preview of Changes<br/>────────────────<br/>- old line<br/>+ new line]
+        HEADER[Tool: edit_file File: src/main.rs]
+        PREVIEW[Preview of Changes ──────────────── - old line + new line]
         CONTEXT[Context: Fixing authentication bug]
-        ACTIONS[y - Approve<br/>n - Reject<br/>a - Always approve edit_file<br/>? - More info]
+        ACTIONS[y - Approve n - Reject a - Always approve edit_file ? - More info]
     end
 
     HEADER --> PREVIEW
@@ -443,23 +443,23 @@ sequenceDiagram
     participant Backend
     participant Emacs
 
-    Backend-->>Emacs: event: tool.call<br/>data: {tool, params, requires_approval}
+    Backend-->>Emacs: event: tool.call data: {tool, params, requires_approval}
 
     alt Requires approval
         Emacs-->>Backend: POST /approve or /reject
     end
 
-    Backend-->>Emacs: event: agent.state<br/>data: {state: "tool_execution"}
+    Backend-->>Emacs: event: agent.state data: {state: "tool_execution"}
 
-    Backend-->>Emacs: event: tool.progress<br/>data: {progress: 50%, message: "Reading file..."}
+    Backend-->>Emacs: event: tool.progress data: {progress: 50%, message: "Reading file..."}
 
-    Backend-->>Emacs: event: tool.result<br/>data: {status, result}
+    Backend-->>Emacs: event: tool.result data: {status, result}
 
     alt File was modified
-        Backend-->>Emacs: event: file.changed<br/>data: {path, operation}
+        Backend-->>Emacs: event: file.changed data: {path, operation}
     end
 
-    Backend-->>Emacs: event: agent.state<br/>data: {state: "idle"}
+    Backend-->>Emacs: event: agent.state data: {state: "idle"}
 ```
 
 ## Custom Tools

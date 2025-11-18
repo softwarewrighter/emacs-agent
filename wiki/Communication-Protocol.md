@@ -346,7 +346,7 @@ sequenceDiagram
     B-->>E: SSE: agent.state (thinking)
     E->>U: Update status line
 
-    B->>L: Generate response<br/>(with tool schemas in TOON)
+    B->>L: Generate response (with tool schemas in TOON)
     L-->>B: Stream response + tool calls
 
     loop For each chunk
@@ -422,12 +422,12 @@ sequenceDiagram
     participant E as Emacs
     participant U as User
 
-    B-->>E: SSE: tool.call<br/>{tool: "write_file", requires_approval: true}
+    B-->>E: SSE: tool.call {tool: "write_file", requires_approval: true}
 
     E->>E: Parse tool call
     E->>E: Generate preview of changes
 
-    E->>U: Show dialog:<br/>"Allow write_file to src/main.rs?"<br/>[Preview of changes]
+    E->>U: Show dialog: "Allow write_file to src/main.rs?" [Preview of changes]
 
     alt User approves
         U->>E: Click "Approve" (or y)
@@ -457,13 +457,13 @@ sequenceDiagram
 
     alt LLM API error
         L-->>B: 429 Rate Limit
-        B-->>E: SSE: error<br/>{message: "Rate limit exceeded"}
+        B-->>E: SSE: error {message: "Rate limit exceeded"}
         B-->>E: SSE: agent.state (error)
         E->>E: Show error to user
     else Tool execution error
         B->>B: Execute tool
         B-->>B: Error: File not found
-        B-->>E: SSE: tool.result<br/>{status: "error", message: "..."}
+        B-->>E: SSE: tool.result {status: "error", message: "..."}
         B->>L: Inform about error
         L-->>B: Retry with corrected params
     else Network error

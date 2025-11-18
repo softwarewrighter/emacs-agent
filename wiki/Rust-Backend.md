@@ -11,7 +11,7 @@ The **Rust backend** is the core engine of Emacs-Agent, handling all agent orche
 ```mermaid
 graph TB
     subgraph "Rust Backend Binary"
-        HTTP[HTTP/SSE Server<br/>axum/actix-web]
+        HTTP[HTTP/SSE Server axum/actix-web]
         ORCH[Agent Orchestrator]
         MCP[MCP Client]
         TRANS[Transcript Logger]

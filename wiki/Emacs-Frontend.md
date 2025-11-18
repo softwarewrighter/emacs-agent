@@ -9,10 +9,10 @@ The **Emacs frontend** provides a native, buffer-based user interface for intera
 ```mermaid
 graph TB
     subgraph "Emacs Frontend"
-        UI[emacs-agent.el<br/>Main UI]
-        API[emacs-agent-api.el<br/>HTTP Client]
-        TRANS[emacs-agent-transcript.el<br/>Transcript Manager]
-        PROJECT[emacs-agent-project.el<br/>Project Integration]
+        UI[emacs-agent.el Main UI]
+        API[emacs-agent-api.el HTTP Client]
+        TRANS[emacs-agent-transcript.el Transcript Manager]
+        PROJECT[emacs-agent-project.el Project Integration]
     end
 
     USER[User] --> UI

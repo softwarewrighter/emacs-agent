@@ -26,8 +26,8 @@ graph TB
     end
 
     subgraph "External Services"
-        LLM[LLM APIs<br/>Claude/GPT/Gemini]
-        MCP_SERVERS[MCP Servers<br/>Filesystem/Git/LSP]
+        LLM[LLM APIs Claude/GPT/Gemini]
+        MCP_SERVERS[MCP Servers Filesystem/Git/LSP]
     end
 
     UI --> API_CLIENT
@@ -162,7 +162,7 @@ sequenceDiagram
     Emacs->>Backend: POST /api/sessions/{id}/prompt
     Backend-->>Emacs: event: agent.state (thinking)
 
-    Backend->>LLM: Generate response<br/>(with tool schemas)
+    Backend->>LLM: Generate response (with tool schemas)
     LLM-->>Backend: Response + tool calls
 
     Backend-->>Emacs: event: message.delta
@@ -247,7 +247,7 @@ sequenceDiagram
 graph LR
     subgraph "User's Machine"
         EMACS[Emacs Process]
-        BACKEND[Rust Backend<br/>localhost:9420]
+        BACKEND[Rust Backend localhost:9420]
         MCP1[MCP: Filesystem]
         MCP2[MCP: Git]
         MCP3[MCP: LSP]
@@ -258,7 +258,7 @@ graph LR
     BACKEND -->|stdio| MCP2
     BACKEND -->|stdio| MCP3
 
-    BACKEND -->|HTTPS| LLM[LLM APIs<br/>Claude/GPT/Gemini]
+    BACKEND -->|HTTPS| LLM[LLM APIs Claude/GPT/Gemini]
 
     style EMACS fill:#e1f5ff
     style BACKEND fill:#fff3e0
@@ -283,7 +283,7 @@ graph TB
 
     subgraph "Server"
         AUTH[Auth Layer]
-        BACKEND[Rust Backend<br/>+ Load Balancer]
+        BACKEND[Rust Backend + Load Balancer]
         MCP_POOL[MCP Server Pool]
     end
 
